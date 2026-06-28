@@ -16,10 +16,17 @@ document.querySelectorAll(".menu-panel a").forEach((link) => {
   });
 });
 
-document.querySelectorAll(".event-item").forEach((item) => {
-  const head = item.querySelector(".event-head");
+const reveals = document.querySelectorAll(".reveal");
 
-  head.addEventListener("click", () => {
-    item.classList.toggle("active");
-  });
-});
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  },
+  { threshold: 0.15 }
+);
+
+reveals.forEach((el) => observer.observe(el));
