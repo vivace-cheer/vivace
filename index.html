@@ -1,137 +1,505 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VIVACE</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
+
+  <meta
+    name="theme-color"
+    content="#080808"
+  >
+
+  <meta
+    name="description"
+    content="대학생 연합 치어리딩팀 비바체 VIVACE 공식 홈페이지"
+  >
+
+  <title>VIVACE | Cheerleading Team</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <header class="top">
-    <button id="menuBtn" class="menu-btn">☰</button>
+
+  <!-- 로딩 화면 -->
+  <div class="loading" id="loading">
+    <img src="logo.png" alt="VIVACE 로고">
     <span>VIVACE</span>
+  </div>
+
+
+  <!-- 상단 메뉴 -->
+  <header class="header" id="header">
+
+    <a href="#home" class="header-logo">
+      <img src="logo.png" alt="VIVACE 로고">
+      <span>VIVACE</span>
+    </a>
+
+    <button
+      class="menu-button"
+      id="menuButton"
+      type="button"
+      aria-label="메뉴 열기"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+    </button>
+
   </header>
 
-  <nav id="menuPanel" class="menu-panel">
-    <button id="closeBtn" class="close-btn">×</button>
-    <a href="#home">HOME</a>
-    <a href="#team">TEAM</a>
-    <a href="#portfolio">PORTFOLIO</a>
-    <a href="#recruit">RECRUIT</a>
-    <a href="#schedule">SCHEDULE</a>
-    <a href="#contact">CONTACT</a>
+
+  <!-- 전체 메뉴 -->
+  <nav class="mobile-menu" id="mobileMenu">
+
+    <div class="menu-number">MENU</div>
+
+    <a href="#about">
+      <span>01</span>
+      VIVACE
+    </a>
+
+    <a href="#performance">
+      <span>02</span>
+      PERFORMANCE
+    </a>
+
+    <a href="#join">
+      <span>03</span>
+      JOIN
+    </a>
+
+    <a href="#contact">
+      <span>04</span>
+      CONTACT
+    </a>
+
+    <div class="menu-social">
+      <a
+        href="https://www.instagram.com/vivace_cheer/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        INSTAGRAM ↗
+      </a>
+
+      <a
+        href="https://www.youtube.com/@vivace_cheer"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        YOUTUBE ↗
+      </a>
+    </div>
+
   </nav>
 
-  <main class="site">
-    <section id="home" class="hero">
-      <div class="hero-bg"></div>
 
-      <p class="eyebrow">CHEERLEADING TEAM</p>
-      <h1>VIVACE</h1>
-      <p class="hero-copy">
-        대학생 연합 치어리딩팀<br />
-        VIVACE(비바체)
-      </p>
+  <main>
 
-      <div class="main-links">
-        <a href="#team">ABOUT</a>
-        <a href="#portfolio">PORTFOLIO</a>
-        <a href="#recruit">RECRUIT</a>
-        <a href="#schedule">SCHEDULE</a>
-        <a href="#contact">CONTACT</a>
-      </div>
-    </section>
+    <!-- 첫 화면 -->
+    <section class="hero" id="home">
 
-    <section id="team" class="section reveal">
-      <p class="section-label">TEAM</p>
-      <h2>VIVACE</h2>
+      <div class="hero-noise"></div>
+      <div class="hero-glow hero-glow-top"></div>
+      <div class="hero-glow hero-glow-bottom"></div>
 
-      <p class="text">
-        <strong>비바체(VIVACE)</strong>는 이탈리아어로
-        <span>‘생기 있게, 활기차게’</span>라는 뜻으로 치어리딩을 좋아하는 대학생들이 모여 만들어가는 연합 치어리딩팀입니다.
-      </p>
-
-      <p class="text">
-        무대를 통해 치어리딩의 활기찬 에너지와
-        즐거움을 전하고자 하며 팜, 스턴트, 액션 등 다양한 치어리딩 퍼포먼스를 준비해
-        선보이고 있습니다.
-      </p>
-    </section>
-
-    <section id="portfolio" class="section reveal">
-      <p class="section-label">PORTFOLIO</p>
-      <h2>Portfolio</h2>
-
-      <p class="small-copy">
-        비바체의 공연 기록이<br />
-        업데이트될 예정입니다.
-      </p>
-    </section>
-
-    <section id="recruit" class="section reveal">
-      <p class="section-label">RECRUIT</p>
-      <h2>비바체 단원 모집</h2>
-
-      <p class="small-copy">
-        비바체 단원 상시 모집중
-      </p>
-
-      <a href="https://naver.me/5yWnuyfm" target="_blank" rel="noopener noreferrer" class="primary-btn">
-        지원하기
-      </a>
-    </section>
-
-    <section id="schedule" class="section reveal">
-      <p class="section-label">SCHEDULE</p>
-      <h2>July</h2>
-
-      <div class="schedule-list">
-        <div>
-          <span>07.04 SAT</span>
-          <strong>정기연습</strong>
-        </div>
-        <div>
-          <span>07.11 SAT</span>
-          <strong>정기연습</strong>
-        </div>
-        <div>
-          <span>07.18 SAT</span>
-          <strong>정기연습</strong>
-        </div>
-        <div>
-          <span>07.25 SAT</span>
-          <strong>정기연습</strong>
-        </div>
+      <div class="hero-v" aria-hidden="true">
+        V
       </div>
 
-      <p class="notice">
-        공연 일정은 Instagram을 통해 먼저 안내됩니다.
+      <div class="hero-content">
+
+        <p class="hero-category reveal">
+          CHEERLEADING TEAM
+        </p>
+
+        <h1 class="hero-title reveal">
+          VIVA<span>CE</span>
+        </h1>
+
+        <div class="hero-line reveal"></div>
+
+        <div class="hero-message reveal">
+          <p>치어리딩팀 비바체,</p>
+          <p>Be VIVACE.</p>
+        </div>
+
+        <div class="hero-buttons reveal">
+
+          <a href="#about" class="main-button main-button-purple">
+            <span>VIEW VIVACE</span>
+            <strong>↓</strong>
+          </a>
+
+          <a
+            href="https://naver.me/5yWnuyfm"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="main-button"
+          >
+            <span>JOIN US</span>
+            <strong>↗</strong>
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="scroll-mark">
+        <span>SCROLL</span>
+        <div></div>
+      </div>
+
+    </section>
+
+
+    <!-- 팀 소개 -->
+    <section class="section about" id="about">
+
+      <div class="section-top reveal">
+        <span>01</span>
+        <p>ABOUT VIVACE</p>
+      </div>
+
+      <h2 class="section-title reveal">
+        <span class="small-title">CHEERLEADING TEAM,</span><br>
+        <span>VIVACE</span>
+      </h2>
+
+      <div class="about-visual reveal">
+
+        <div class="about-v">
+          V
+        </div>
+
+        <div class="about-visual-bottom">
+          <span>VIVACE</span>
+        </div>
+
+      </div>
+
+      <div class="about-copy reveal">
+
+        <p class="about-lead">
+          치어리딩팀 VIVACE(비바체)
+        </p>
+
+        <p>
+          VIVACE는 이탈리아어로 '생기있게, 활기차게'라는 뜻으로
+          치어리딩을 좋아하는 대학생들이 모여 만들어가는
+          연합 치어리딩팀입니다.
+        </p>
+
+        <p>
+          무대를 통해 치어리딩의 활기찬 에너지와 즐거움을 전하고자
+          하며 팜, 스턴트, 액션 등 다양한 치어리딩 퍼포먼스를
+          준비하고 있습니다.
+        </p>
+
+      </div>
+
+
+    </section>
+
+
+    <!-- 공연 -->
+    <section class="section performance" id="performance">
+
+      <div class="section-top reveal">
+        <span>02</span>
+        <p>PERFORMANCE</p>
+      </div>
+
+      <h2 class="section-title reveal">
+        OUR<br>
+        <strong>MOMENTS.</strong>
+      </h2>
+
+      <p class="section-description reveal">
+        VIVACE ON THE STAGE.<br>
+        비바체의 공연과 활동들은 비바체 인스타그램과 유튜브에서 확인하실 수 있습니다.
       </p>
 
-      <a href="https://www.instagram.com/vivace_cheer?igsh=N21pMWF2NzRwbDZm"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="text-link">
-        Instagram 바로가기 →
-      </a>
-    </section>
 
-    <section id="contact" class="section contact reveal">
-      <p class="section-label">CONTACT</p>
-      <h2>Contact</h2>
+      <div class="performance-list">
 
-      <a href="mailto:vivacecheerleading@gmail.com" class="mail">
-        vivacecheerleading@gmail.com
-      </a>
+        <article class="performance-card performance-card-one reveal">
 
-      <div class="sns">
-        <a href="https://www.instagram.com/vivace_cheer?igsh=N21pMWF2NzRwbDZm" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="https://www.youtube.com/@vivace_cheer" target="_blank" rel="noopener noreferrer">YouTube</a>
+          <div class="performance-number">
+            01
+          </div>
+
+          <div class="performance-content">
+            <span>Performances</span>
+
+            <h3>
+              VIVACE Album #1
+            </h3>
+
+          </div>
+
+        </article>
+
+
+        <article class="performance-card performance-card-two reveal">
+
+          <div class="performance-number">
+            02
+          </div>
+
+          <div class="performance-content">
+            <span>Festivals</span>
+
+            <h3>
+              VIVACE Album #2
+            </h3>
+
+          </div>
+
+        </article>
+
+
+        <article class="performance-card performance-card-three reveal">
+
+          <div class="performance-number">
+            03
+          </div>
+
+          <div class="performance-content">
+            <span>Competitions</span>
+
+            <h3>
+              VIVACE Album #3
+            </h3>
+
+          </div>
+
+        </article>
+
       </div>
+
+
+      <!-- 대표 공연 기록 -->
+      <div class="record reveal">
+
+        <div class="record-heading">
+          <span>SELECTED RECORD</span>
+          <strong>2026</strong>
+        </div>
+
+        <div class="record-list">
+
+          <div>
+            <span>07.10</span>
+            <p>슈퍼스타 상봉</p>
+          </div>
+
+          <div>
+            <span>07.11</span>
+            <p>키자니아 열린무대</p>
+          </div>
+
+          <div>
+            <span>08.01</span>
+            <p>시립은평청소년센터 꿈뻑쇼</p>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- 유튜브 연결 -->
+      <a
+        href="https://www.youtube.com/@vivace_cheer"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="video-link reveal"
+      >
+
+        <div>
+          <span>WATCH MORE</span>
+
+          <h3>
+            무대 위 비바체를<br>
+            영상으로 만나보세요.
+          </h3>
+        </div>
+
+        <strong>↗</strong>
+
+      </a>
+
     </section>
+
+
+    <!-- 모집 -->
+    <section class="join" id="join">
+
+      <div class="join-line"></div>
+
+      <div class="section-top join-top reveal">
+        <span>03</span>
+        <p>JOIN VIVACE</p>
+      </div>
+
+      <h2 class="join-title reveal">
+        READY<br>
+        TO JOIN<br>
+        <span>THE VIVACE?</span>
+      </h2>
+
+      <p class="join-description reveal">
+        2026 비바체 단원 상시모집
+      </p>
+
+      <div class="join-info reveal">
+
+        <div>
+          <span>01</span>
+          <p>2026년 기준 20세 이상의 대학생</p>
+        </div>
+
+        <div>
+          <span>02</span>
+          <p>치어리딩에 대한 관심과 열정을 가진 분</p>
+        </div>
+
+        <div>
+          <span>03</span>
+          <p>매주 토요일 13~17시 사당 인근 연습에 참여 가능하신 분</p>
+        </div>
+
+        <div>
+          <span>04</span>
+          <p>다양한 무대와 공연을 함께 만들어가고 싶으신 분</p>
+        </div>
+
+      </div>
+
+      <a
+        href="https://naver.me/5yWnuyfm"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="apply-button reveal"
+      >
+        <span>
+          APPLY<br>
+          NOW
+        </span>
+
+        <strong>↗</strong>
+      </a>
+
+    </section>
+
+
+    <!-- 연락처 -->
+    <section class="section contact" id="contact">
+
+      <div class="section-top reveal">
+        <span>04</span>
+        <p>CONTACT</p>
+      </div>
+
+      <h2 class="section-title contact-title reveal">
+        CONTACT<br>
+        <strong>VIVACE</strong>
+      </h2>
+
+      <div class="contact-list">
+
+        <a
+          href="https://www.instagram.com/vivace_cheer/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="contact-item reveal"
+        >
+          <div>
+            <span>INSTAGRAM</span>
+            <p>@vivace_cheer</p>
+          </div>
+
+          <strong>↗</strong>
+        </a>
+
+
+        <a
+          href="https://www.youtube.com/@vivace_cheer"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="contact-item reveal"
+        >
+          <div>
+            <span>YOUTUBE</span>
+            <p>@vivace_cheer</p>
+          </div>
+
+          <strong>↗</strong>
+        </a>
+
+
+        <a
+          href="mailto:vivacecheerleading@gmail.com"
+          class="contact-item reveal"
+        >
+          <div>
+            <span>EMAIL</span>
+            <p>vivacecheerleading@gmail.com</p>
+          </div>
+
+          <strong>↗</strong>
+        </a>
+
+      </div>
+
+    </section>
+
   </main>
 
+
+  <!-- 푸터 -->
+  <footer class="footer">
+
+    <div class="footer-logo">
+      <img src="logo.png" alt="VIVACE 로고">
+    </div>
+
+    <h2>
+      CHEERLEADING TEAM<br>
+      <span>VIVACE</span>
+    </h2>
+
+    <div class="footer-bottom">
+
+      <p>
+        © <span id="currentYear"></span> VIVACE
+      </p>
+
+      <a href="#home">
+        TOP ↑
+      </a>
+
+    </div>
+
+  </footer>
+
+
   <script src="script.js"></script>
+
 </body>
 </html>
