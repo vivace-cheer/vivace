@@ -1005,59 +1005,51 @@ img {
   font-size: 12px;
 }
 
+/* 공연 영상: 간결한 안내 버튼 */
 .video-link {
   display: flex;
-  min-height: 235px;
-
-  align-items: flex-end;
+  min-height: 112px;
+  align-items: center;
   justify-content: space-between;
-
-  margin-top: 65px;
-  padding: 27px 23px;
-
-  overflow: hidden;
-
-  border: 1px solid rgba(186, 124, 255, 0.3);
-  border-radius: var(--card-radius);
-
-  background:
-    radial-gradient(
-      circle at 100% 0%,
-      rgba(135, 65, 255, 0.48),
-      transparent 48%
-    ),
-    #111111;
-
-  transition:
-    transform 0.25s ease,
-    border-color 0.25s ease;
+  gap: 18px;
+  margin-top: 48px;
+  padding: 22px 24px;
+  border: 1px solid rgba(186, 124, 255, .34);
+  border-radius: 14px;
+  background: #17121d;
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
 }
-
-.video-link:active {
-  transform: scale(0.985);
+.video-link:hover, .video-link:focus-visible {
+  background: #21162c;
+  border-color: #b480ff;
+  transform: translateY(-2px);
 }
-
 .video-link span {
-  color: var(--purple-light);
-
+  display: block;
+  color: #b993ee;
   font-family: "Montserrat", sans-serif;
-  font-size: 8px;
+  font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.23em;
+  letter-spacing: .14em;
 }
-
 .video-link h3 {
-  margin-top: 17px;
-
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 1.5;
-  letter-spacing: -0.025em;
+  margin-top: 9px;
+  color: #fff;
+  font-size: clamp(17px, 5vw, 21px);
+  font-weight: 700;
+  line-height: 1.3;
 }
-
 .video-link > strong {
-  font-size: 27px;
-  font-weight: 300;
+  display: grid;
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border: 1px solid rgba(186, 124, 255, .5);
+  border-radius: 50%;
+  color: #e7d5ff;
+  font-size: 21px;
+  font-weight: 400;
 }
 
 
@@ -1170,41 +1162,53 @@ img {
   font-size: 12px;
 }
 
+/* 지원하기: 선명하고 누르기 쉬운 버튼 */
 .apply-button {
   display: flex;
-  min-height: 165px;
-
-  align-items: flex-end;
+  min-height: 92px;
+  align-items: center;
   justify-content: space-between;
-
+  gap: 16px;
   margin-top: 42px;
-  padding: 23px;
-
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  border-radius: var(--card-radius);
-
-  transition:
-    transform 0.25s ease,
-    background 0.25s ease,
-    color 0.25s ease;
+  padding: 20px 23px;
+  border: 1px solid rgba(255, 255, 255, .9);
+  border-radius: 14px;
+  background: #fff;
+  color: #551797;
+  box-shadow: 0 12px 28px rgba(39, 11, 74, .2);
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
 }
-
-.apply-button:active {
-  transform: scale(0.985);
-  background: white;
-  color: var(--purple-dark);
+.apply-button:hover, .apply-button:focus-visible {
+  transform: translateY(-2px);
+  background: #f5ecff;
+  box-shadow: 0 16px 32px rgba(39, 11, 74, .3);
 }
-
+.apply-button:active, .video-link:active { transform: scale(.985); }
 .apply-button span {
-  font-family: "Montserrat", sans-serif;
-  font-size: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: clamp(18px, 5vw, 23px);
   font-weight: 800;
-  line-height: 0.86;
+  line-height: 1.15;
 }
-
+.apply-button small {
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .15em;
+}
 .apply-button strong {
-  font-size: 29px;
-  font-weight: 300;
+  display: grid;
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 50%;
+  background: #6b27b0;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 400;
 }
 
 
@@ -1404,3 +1408,11 @@ img {
       0 26px 50px rgba(0, 0, 0, 0.36);
   }
 }
+
+/* 비바체 앨범: 6장의 사진 */
+    .vivace-album { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 36px 0 56px; }
+    .vivace-album-item { position: relative; margin: 0; aspect-ratio: 4 / 5; overflow: hidden; background: linear-gradient(145deg, #241032, #100d17 70%); border: 1px solid rgba(180, 130, 220, .25); border-radius: 12px; }
+    .vivace-album-item img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease; }
+    .vivace-album-item:hover img { transform: scale(1.05); }
+    .vivace-album-item figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 28px 14px 14px; color: white; font-weight: 700; font-size: 14px; background: linear-gradient(transparent, rgba(0,0,0,.72)); }
+    @media (max-width: 700px) { .vivace-album { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } .vivace-album-item figcaption { font-size: 12px; } }
