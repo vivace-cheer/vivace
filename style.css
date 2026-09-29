@@ -216,7 +216,7 @@ img {
 }
 
 .loading-rest {
-  left: 58px;
+  left: 83px;
   color: #f8f6fa;
 
   clip-path: inset(0 100% 0 0);
@@ -234,7 +234,7 @@ img {
 }
 
 @keyframes moveV {
-  to { transform: translate(-145px, -50%); }
+  to { transform: translate(-120px, -50%); }
 }
 
 @keyframes writeName {
@@ -1486,4 +1486,15 @@ img {
   font-family: "Montserrat", sans-serif;
   font-size: 12px;
   letter-spacing: 0.15em;
+}
+
+.join-info > div {
+  grid-template-columns: 42px minmax(0, 1fr);
+}
+
+.join-info p {
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.6;
 }
