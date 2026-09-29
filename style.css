@@ -1541,3 +1541,8 @@ img {
   background: rgba(255, 255, 255, 0.12);
   color: #fff;
 }
+
+.join-info > div:nth-child(3) p {
+  font-size: 11px;
+  line-height: 1.6;
+}
