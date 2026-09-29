@@ -1384,3 +1384,106 @@ img {
     .vivace-album-item:hover img { transform: scale(1.05); }
     .vivace-album-item figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 28px 14px 14px; color: white; font-weight: 700; font-size: 14px; background: linear-gradient(transparent, rgba(0,0,0,.72)); }
     @media (max-width: 700px) { .vivace-album { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } .vivace-album-item figcaption { font-size: 12px; } }
+
+    /* 휴대폰 앨범처럼 보이는 사진 목록 */
+.vivace-album {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 3px;
+}
+
+.vivace-album-item {
+  margin: 0;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.vivace-album-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vivace-album-item figcaption {
+  display: none;
+}
+
+.vivace-album-item:focus-visible {
+  outline: 3px solid #bb8cff;
+  outline-offset: -3px;
+}
+
+/* 사진을 눌렀을 때 열리는 화면 */
+.album-viewer {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 65px 0;
+  border: 0;
+  background: #08070c;
+  color: white;
+}
+
+.album-viewer[open] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.album-viewer::backdrop {
+  background: rgba(0, 0, 0, 0.95);
+}
+
+.album-viewer img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.album-close,
+.album-arrow {
+  position: absolute;
+  z-index: 1;
+  border: 0;
+  background: rgba(0, 0, 0, 0.45);
+  color: white;
+  cursor: pointer;
+}
+
+.album-close {
+  top: 15px;
+  right: 18px;
+  width: 42px;
+  height: 42px;
+  font-size: 32px;
+  line-height: 1;
+}
+
+.album-arrow {
+  top: 50%;
+  width: 40px;
+  height: 60px;
+  transform: translateY(-50%);
+  font-size: 32px;
+}
+
+.album-prev { left: 0; }
+.album-next { right: 0; }
+
+.album-count {
+  position: absolute;
+  bottom: 25px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+}

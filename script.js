@@ -87,4 +87,64 @@ document.addEventListener("DOMContentLoaded", () => {
     item.style.transitionDelay = `${delay}ms`;
     revealObserver.observe(item);
   });
+
+    /* 앨범 사진 크게 보기 */
+  const albumPhotos = [...document.querySelectorAll(".vivace-album-item img")];
+  const albumViewer = document.getElementById("albumViewer");
+  const albumFullImage = document.getElementById("albumFullImage");
+  const albumCount = document.getElementById("albumCount");
+  let albumIndex = 0;
+
+  const showAlbumPhoto = (index) => {
+    albumIndex = (index + albumPhotos.length) % albumPhotos.length;
+    albumFullImage.src = albumPhotos[albumIndex].src;
+    albumFullImage.alt = albumPhotos[albumIndex].alt;
+    albumCount.textContent = `${albumIndex + 1} / ${albumPhotos.length}`;
+  };
+
+  albumPhotos.forEach((photo, index) => {
+    const item = photo.closest(".vivace-album-item");
+    item.tabIndex = 0;
+    item.setAttribute("role", "button");
+    item.setAttribute("aria-label", `앨범 사진 ${index + 1} 크게 보기`);
+
+    item.addEventListener("click", () => {
+      showAlbumPhoto(index);
+      albumViewer.showModal();
+    });
+
+    item.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        showAlbumPhoto(index);
+        albumViewer.showModal();
+      }
+    });
+  });
+
+  document.getElementById("albumClose").addEventListener("click", () => {
+    albumViewer.close();
+  });
+
+  document.getElementById("albumPrev").addEventListener("click", () => {
+    showAlbumPhoto(albumIndex - 1);
+  });
+
+  document.getElementById("albumNext").addEventListener("click", () => {
+    showAlbumPhoto(albumIndex + 1);
+  });
+
+  let albumTouchX = 0;
+
+  albumViewer.addEventListener("touchstart", (event) => {
+    albumTouchX = event.changedTouches[0].screenX;
+  }, { passive: true });
+
+  albumViewer.addEventListener("touchend", (event) => {
+    const distance = event.changedTouches[0].screenX - albumTouchX;
+
+    if (Math.abs(distance) > 45) {
+      showAlbumPhoto(albumIndex + (distance < 0 ? 1 : -1));
+    }
+  }, { passive: true });
 });
