@@ -8,11 +8,7 @@
     content="width=device-width, initial-scale=1.0, viewport-fit=cover"
   >
 
-  <meta
-    name="theme-color"
-    content="#080808"
-  >
-
+  <meta name="theme-color" content="#080808">
   <meta
     name="description"
     content="대학생 연합 치어리딩팀 비바체 VIVACE 공식 홈페이지"
@@ -30,17 +26,94 @@
 
   <link rel="stylesheet" href="style.css?v=2">
 
+  <style>
+    .record-group {
+      margin-top: 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    summary.record-year {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 22px 4px;
+      color: #f7f4fb;
+      font-family: "Noto Sans KR", sans-serif;
+      font-size: clamp(20px, 4vw, 28px);
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    summary.record-year::-webkit-details-marker {
+      display: none;
+    }
+
+    .record-action {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #c9b3ed;
+      font-family: "Noto Sans KR", sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      white-space: nowrap;
+    }
+
+    .record-action-text::before {
+      content: "활동 내역 보기";
+    }
+
+    .record-toggle {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border: 1px solid #9b6de0;
+      border-radius: 50%;
+      color: #c9a8ff;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .record-toggle::before {
+      content: "+";
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .record-group[open] .record-action-text::before {
+      content: "활동 내역 접기";
+    }
+
+    .record-group[open] .record-toggle {
+      background: #9b6de0;
+      color: #080808;
+      transform: rotate(180deg);
+    }
+
+    .record-group[open] .record-toggle::before {
+      content: "−";
+    }
+
+    @media (hover: hover) {
+      summary.record-year:hover .record-toggle {
+        background: #9b6de0;
+        color: #080808;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
   <!-- 로딩 화면 -->
-<div class="loading" id="loading">
-  <div class="loading-mark" aria-label="VIVACE">
-    <span class="loading-v" aria-hidden="true">V</span>
-    <span class="loading-rest" aria-hidden="true">IVACE</span>
+  <div class="loading" id="loading">
+    <div class="loading-mark" aria-label="VIVACE">
+      <span class="loading-v" aria-hidden="true">V</span>
+      <span class="loading-rest" aria-hidden="true">IVACE</span>
+    </div>
   </div>
-</div>
 
   <!-- 상단 메뉴 -->
   <header class="header" id="header">
@@ -182,7 +255,11 @@
         <span>VIVACE</span>
       </h2>
 
-      <div class="about-visual reveal" role="img" aria-label="비바체 팀 단체사진"></div>
+      <div
+        class="about-visual reveal"
+        role="img"
+        aria-label="비바체 팀 단체사진"
+      ></div>
 
       <div class="about-copy reveal">
 
@@ -203,7 +280,6 @@
         </p>
 
       </div>
-
 
     </section>
 
@@ -251,67 +327,119 @@
       </div>
 
 
-      <!-- 대표 공연 기록 -->
-      <h3 class="record-year reveal">2026 PORTFOLIO</h3>
-      <div class="record-list">
-      
-  <div>
-    <span>07.10</span>
-    <p>슈퍼스타 상봉 대회</p>
-    <button
-      type="button"
-      class="record-play record-pending"
-      onclick="alert('해당 공연의 영상이 아직 업로드되지 않았습니다.')"
-      aria-label="영상 업로드 예정 안내"
-    >▶</button>
-  </div>
+      <!-- 비바체 1기 활동 -->
+      <details class="record-group">
+        <summary class="record-year">
+          <span class="record-title">VIVACE 1기</span>
+          <span class="record-action">
+            <span class="record-action-text"></span>
+            <span class="record-toggle" aria-hidden="true"></span>
+          </span>
+        </summary>
 
-  <div>
-    <span>07.11</span>
-    <p>키자니아 열린무대 공연</p>
-    <button
-      type="button"
-      class="record-play record-pending"
-      onclick="alert('해당 공연의 영상이 아직 업로드되지 않았습니다.')"
-      aria-label="영상 업로드 예정 안내"
-    >▶</button>
-  </div>
+        <div class="record-list">
 
-  <div>
-    <span>08.01</span>
-    <p>시립은평청소년센터 꿈뻑쇼 공연</p>
-    <a href="https://youtu.be/VjImd15FL7M?si=yI1dpAUzb8l3SRPV" target="_blank" rel="noopener noreferrer"
-       class="record-play" aria-label="꿈뻑쇼 공연 영상 보기">▶</a>
-  </div>
+          <div>
+            <span>07.10</span>
+            <p>슈퍼스타 상봉 대회</p>
+            <button
+              type="button"
+              class="record-play record-pending"
+              onclick="alert('해당 공연의 영상이 아직 업로드되지 않았습니다.')"
+              aria-label="영상 업로드 예정 안내"
+            >▶</button>
+          </div>
 
-  <div>
-    <span>09.05</span>
-    <p>사당3동 어울림동행축제 공연</p>
-    <a href="https://youtu.be/m2jvcf7c8us?si=TofKgN5FaBG6PpJr" target="_blank" rel="noopener noreferrer"
-       class="record-play" aria-label="사당3동 어울림동행축제 공연 영상 보기">▶</a>
-  </div>
+          <div>
+            <span>07.11</span>
+            <p>키자니아 열린무대 공연</p>
+            <button
+              type="button"
+              class="record-play record-pending"
+              onclick="alert('해당 공연의 영상이 아직 업로드되지 않았습니다.')"
+              aria-label="영상 업로드 예정 안내"
+            >▶</button>
+          </div>
 
-  <div>
-    <span>09.12</span>
-    <p>2026 청소년생명존중페스타 개막식 공연</p>
-    <a href="https://youtu.be/1bcVD8KFC_Q?si=p4TIHwsUPctSNvZb" target="_blank" rel="noopener noreferrer"
-       class="record-play" aria-label="2026 청소년생명존중페스타 공연 영상 보기">▶</a>
-  </div>
+          <div>
+            <span>08.01</span>
+            <p>시립은평청소년센터 꿈뻑쇼 공연</p>
+            <a
+              href="https://youtu.be/VjImd15FL7M?si=yI1dpAUzb8l3SRPV"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="record-play"
+              aria-label="꿈뻑쇼 공연 영상 보기"
+            >▶</a>
+          </div>
 
-  <div>
-    <span>09.19</span>
-    <p>폴리너즈 버스킹 공연</p>
-    <a href="https://youtu.be/1PSnc9vkaIE?si=DQikmVmjQzFcNgH_" target="_blank" rel="noopener noreferrer"
-       class="record-play" aria-label="폴리너즈 버스킹 공연 영상 보기">▶</a>
-  </div>
+          <div>
+            <span>09.05</span>
+            <p>사당3동 어울림동행축제 공연</p>
+            <a
+              href="https://youtu.be/m2jvcf7c8us?si=TofKgN5FaBG6PpJr"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="record-play"
+              aria-label="사당3동 어울림동행축제 공연 영상 보기"
+            >▶</a>
+          </div>
 
-  <div>
-    <span>11.07</span>
-    <p>제4회 동작청소년축제 공연</p>
-    <a href="https://youtu.be/o2yivevIjDE?si=FFvkl1g4fWn2OgL4" target="_blank" rel="noopener noreferrer"
-       class="record-play" aria-label="제4회 동작청소년축제 공연 영상 보기">▶</a>
-  </div>
-      </div>
+          <div>
+            <span>09.12</span>
+            <p>2026 청소년생명존중페스타 개막식 공연</p>
+            <a
+              href="https://youtu.be/1bcVD8KFC_Q?si=p4TIHwsUPctSNvZb"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="record-play"
+              aria-label="2026 청소년생명존중페스타 공연 영상 보기"
+            >▶</a>
+          </div>
+
+          <div>
+            <span>09.19</span>
+            <p>폴리너즈 버스킹 공연</p>
+            <a
+              href="https://youtu.be/1PSnc9vkaIE?si=DQikmVmjQzFcNgH_"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="record-play"
+              aria-label="폴리너즈 버스킹 공연 영상 보기"
+            >▶</a>
+          </div>
+
+          <div>
+            <span>11.07</span>
+            <p>제4회 동작청소년축제 공연</p>
+            <a
+              href="https://youtu.be/o2yivevIjDE?si=FFvkl1g4fWn2OgL4"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="record-play"
+              aria-label="제4회 동작청소년축제 공연 영상 보기"
+            >▶</a>
+          </div>
+
+        </div>
+      </details>
+
+
+      <!-- 비바체 2기 활동 -->
+      <details class="record-group">
+        <summary class="record-year">
+          <span class="record-title">VIVACE 2기</span>
+          <span class="record-action">
+            <span class="record-action-text"></span>
+            <span class="record-toggle" aria-hidden="true"></span>
+          </span>
+        </summary>
+
+        <div class="record-list">
+          <p>2기 활동 기록은 추후 업데이트될 예정입니다.</p>
+        </div>
+      </details>
+
 
       <!-- 유튜브 연결 -->
       <a
@@ -320,14 +448,12 @@
         rel="noopener noreferrer"
         class="video-link reveal"
       >
-
         <div>
           <span>VIVACE ON YOUTUBE</span>
           <h3>유튜브 바로가기</h3>
         </div>
 
         <strong>↗</strong>
-
       </a>
 
     </section>
@@ -378,7 +504,6 @@
         class="apply-button reveal"
       >
         <span><small>JOIN OUR TEAM</small>12월 12일 OPEN</span>
-
         <strong>↗</strong>
       </a>
 
@@ -414,7 +539,6 @@
           <strong>↗</strong>
         </a>
 
-
         <a
           href="https://www.youtube.com/@vivace_cheer"
           target="_blank"
@@ -428,7 +552,6 @@
 
           <strong>↗</strong>
         </a>
-
 
         <a
           href="mailto:vivacecheerleading@gmail.com"
@@ -464,7 +587,7 @@
     <div class="footer-bottom">
 
       <p>
-        © <span id="currentYear"></span> VIVACEgit status
+        © <span id="currentYear"></span> VIVACE
       </p>
 
       <a href="#home">
@@ -478,16 +601,15 @@
 
   <script src="script.js?v=album-2"></script>
 
-<dialog class="album-viewer" id="albumViewer" aria-label="앨범 사진 크게 보기">
-  <button class="album-close" id="albumClose" type="button" aria-label="닫기">×</button>
+  <dialog class="album-viewer" id="albumViewer" aria-label="앨범 사진 크게 보기">
+    <button class="album-close" id="albumClose" type="button" aria-label="닫기">×</button>
 
-  <button class="album-arrow album-prev" id="albumPrev" type="button" aria-label="이전 사진">‹</button>
-  <img id="albumFullImage" src="" alt="">
-  <button class="album-arrow album-next" id="albumNext" type="button" aria-label="다음 사진">›</button>
+    <button class="album-arrow album-prev" id="albumPrev" type="button" aria-label="이전 사진">‹</button>
+    <img id="albumFullImage" src="" alt="">
+    <button class="album-arrow album-next" id="albumNext" type="button" aria-label="다음 사진">›</button>
 
-  <span class="album-count" id="albumCount"></span>
-
-</dialog>
+    <span class="album-count" id="albumCount"></span>
+  </dialog>
 
 </body>
 </html>
